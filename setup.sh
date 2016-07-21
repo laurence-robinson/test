@@ -32,11 +32,11 @@ vi config/application.yml
 echo "Prepping docker"
 yum install -y wget
 wget -qO- https://get.docker.com/ | sh
-sudo usermod -aG docker $(whoami)
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
-sudo yum install -y epel-release
-sudo yum install -y python-pip
+usermod -aG docker $(whoami)
+systemctl enable docker.service
+systemctl start docker.service
+yum install -y epel-release
+yum install -y python-pip
 /usr/bin/yes | sudo pip install docker-compose
 sudo yum upgrade python*
 

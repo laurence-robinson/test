@@ -23,7 +23,8 @@ echo "Enter your Git email: "
 read email
 git config --add user.email $email
 git clone git@github.com:riotgameseurope/rgts.git
-cd rgts
+
+cd ~/rgts
 
 touch config/application.yml
 vi config/application.yml

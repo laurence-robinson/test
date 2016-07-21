@@ -29,12 +29,17 @@ cd ~/rgts
 touch config/application.yml
 vi config/application.yml
 
+touch /etc/yum.repos.d/docker.repo
 echo "Prepping docker"
-yum install -y wget
-wget -qO- https://get.docker.com/ | sh
-usermod -aG docker $(whoami)
-systemctl enable docker.service
-systemctl start docker.service
+echo "[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+EOF" > /etc/yum.repos.d/docker.repo
+yum install -y docker-engine
+service docker start
 yum install -y epel-release
 yum install -y python-pip
 /usr/bin/yes | pip install virtualenv

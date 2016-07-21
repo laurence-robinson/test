@@ -20,14 +20,13 @@ echo "Enter your Git username: "
 read username
 git config --add user.name $username
 echo "Enter your Git email: "
+read email
 git config --add user.email $email
 git clone git@github.com:riotgameseurope/rgts.git
 cd rgts
 
-echo "Please copy in your application.yml: "
-read application
 touch config/application.yml
-echo $application > config/application.yml
+vi config/application.yml
 
 echo "Prepping docker"
 tee /etc/yum.repos.d/docker.repo <<-'EOF'

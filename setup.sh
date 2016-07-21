@@ -6,12 +6,8 @@ mkdir ~/.ssh
 cd ~/.ssh
 touch id_rsa
 touch id_rsa.pub
-echo "Please enter the private ssh key for Git: "
-read private
-echo $private > id_rsa
-echo "Please enter the public ssh key for Git: "
-read public
-echo $public > id_rsa.pub
+vi id_rsa
+vi id_rsa.pub
 chmod 400 id_rsa
 
 cd ~

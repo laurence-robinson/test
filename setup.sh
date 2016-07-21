@@ -12,8 +12,6 @@ chmod 400 id_rsa
 
 cd ~
 
-echo "Installing Git"
-yum install git -y
 mkdir ~/.git
 touch ~/.git/config
 echo "Enter your Git username: "
@@ -29,27 +27,8 @@ cd ~/rgts
 touch config/application.yml
 vi config/application.yml
 
-touch /etc/yum.repos.d/docker.repo
-echo "Prepping docker"
-echo "[dockerrepo]
-name=Docker Repository
-baseurl=https://yum.dockerproject.org/repo/main/centos/6/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg" > /etc/yum.repos.d/docker.repo
-rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-yum install -y epel-release 
-yum install -y python-pip
-yum install -y docker-engine
-service docker start
-/usr/bin/yes | pip install virtualenv
-mkdir /tmp/virtualenv
-cd /tmp/virtualenv
-virtualenv -p /usr/bin/python2.7 venv
-source venv/bin/activate
-pip freeze > requirements.txt
-/usr/bin/yes | pip install docker-compose
-yum upgrade python
+curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 
 cd ~/rgts
 

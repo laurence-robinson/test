@@ -33,7 +33,7 @@ touch /etc/yum.repos.d/docker.repo
 echo "Prepping docker"
 echo "[dockerrepo]
 name=Docker Repository
-baseurl=https://yum.dockerproject.org/repo/main/centos/7/
+baseurl=https://yum.dockerproject.org/repo/main/centos/6/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum.dockerproject.org/gpg" > /etc/yum.repos.d/docker.repo

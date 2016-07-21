@@ -37,8 +37,8 @@ systemctl enable docker.service
 systemctl start docker.service
 yum install -y epel-release
 yum install -y python-pip
-/usr/bin/yes | sudo pip install docker-compose
-sudo yum upgrade python*
+/usr/bin/yes | pip install docker-compose
+yum upgrade python*
 
 docker-compose build
 docker-compose run app bundle install --path /remote_gems --without test

@@ -38,9 +38,8 @@ systemctl start docker.service
 yum install -y epel-release
 yum install -y python-pip
 /usr/bin/yes | pip install virtualenv
-mkdir tmp/virtualenv
-cd tmp/virtualenv
-virtualenv venv
+mkdir /tmp/virtualenv
+cd /tmp/virtualenv
 virtualenv -p /usr/bin/python2.7 venv
 source venv/bin/activate
 pip freeze > requirements.txt

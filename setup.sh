@@ -37,8 +37,17 @@ systemctl enable docker.service
 systemctl start docker.service
 yum install -y epel-release
 yum install -y python-pip
+/usr/bin/yes | pip install virtualenv
+mkdir tmp/virtualenv
+cd tmp/virtualenv
+virtualenv venv
+virtualenv -p /usr/bin/python2.7 venv
+source venv/bin/activate
+pip freeze > requirements.txt
 /usr/bin/yes | pip install docker-compose
-yum upgrade python*
+yum upgrade python
+
+cd ~/rgts
 
 docker-compose build
 docker-compose run app bundle install --path /remote_gems --without test

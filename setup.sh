@@ -29,7 +29,7 @@ touch config/application.yml
 vi config/application.yml
 
 echo "Prepping docker"
-#Install Docker
+yum install -y wget
 wget -qO- https://get.docker.com/ | sh
 sudo usermod -aG docker $(whoami)
 sudo systemctl enable docker.service

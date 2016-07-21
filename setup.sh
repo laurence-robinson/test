@@ -37,7 +37,7 @@ baseurl=https://yum.dockerproject.org/repo/main/centos/7/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum.dockerproject.org/gpg" > /etc/yum.repos.d/docker.repo
-yum install -y initscripts epel-release python-pip
+yum install -y epel-release python-pip
 yum install -y docker-engine
 service docker start
 /usr/bin/yes | pip install virtualenv
